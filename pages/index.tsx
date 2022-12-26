@@ -17,7 +17,7 @@ interface GithubStats {
 }
 
 
-export default function Home({data}) {
+export default function Home({data} : {data:any}) {
   return (
     <>
       <Head>
@@ -40,7 +40,7 @@ export default function Home({data}) {
             <h2>Aleksei Shevtsov</h2>
             <p>Software developer and Co-Founder of BDV Foundation, 
               a company that provides Software as a Service and Outsourcing services. 
-              I'm working with Java-based applications.</p>
+              I&apos;m working with Java-based applications.</p>
           </div>
         </div>
         <div className={styles.info}>
@@ -84,6 +84,5 @@ export async function getServerSideProps() {
   data.following = resData.following;
   data.location = resData.location;
 
-  console.log(data)
   return { props: {data}}
 }

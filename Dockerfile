@@ -1,21 +1,29 @@
-FROM node:alpine
+FROM node:lts-alpine as dependencies
+WORKDIR /app
+COPY package.json ./
+RUN yarn install --frozen-lockfile
 
-RUN mkdir -p /usr/src/app
-ENV PORT 3000
-
-WORKDIR /usr/src/app
-
-COPY package.json /usr/src/app
-
-# Production use node instead of root
-# USER node
-
-RUN yarn install --production
-RUN yarn add --dev typescript @types/node
-RUN yarn add --dev web-vitals
-COPY . /usr/src/app
-
+FROM node:lts-alpine as builder
+WORKDIR /app
+COPY . .
+COPY --from=dependencies /app/node_modules ./node_modules
 RUN yarn build
 
-EXPOSE 3000
-CMD [ "yarn", "start" ]
+FROM node:lts-alpine as runner
+
+ARG APP=/app
+
+ENV APP_USER=runner
+RUN addgroup -S $APP_USER \
+    && adduser -S $APP_USER -G $APP_USER \
+    && mkdir -p ${APP}
+
+RUN chown -R $APP_USER:$APP_USER ${APP}
+
+WORKDIR /app
+
+COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
