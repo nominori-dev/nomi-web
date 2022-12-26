@@ -18,13 +18,6 @@ interface GithubStats {
 
 
 export default function Home({data}) {
-
-  let isMobile: boolean = false;
-
-  React.useEffect(() => {
-    isMobile = window.screen.width < 600;
-  })
-
   return (
     <>
       <Head>
