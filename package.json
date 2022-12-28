@@ -25,6 +25,5 @@
     "three": "^0.146.0",
     "three-stdlib": "^2.21.1",
     "typescript": "4.9.4"
-  },
-  "type": "module"
+  }
 }
