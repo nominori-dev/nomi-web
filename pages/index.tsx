@@ -6,7 +6,6 @@ import Programmer from '../public/programmer.svg'
 import React from 'react'
 import { Canvas } from '@react-three/fiber'
 import Floor from '../components/Floor'
-import OrbitControls from '../components/OrbitControls'
 import {Scene} from '../components/Scene'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -52,9 +51,8 @@ export default function Home({data} : {data:any}) {
               position: [-6, 0, 10]
             }}
           >
-            <ambientLight color={"white"} intensity={0.3} />
-            <OrbitControls/>
-            <Scene rotateX={3}/>
+            <ambientLight color={"white"} intensity={0.7} />
+            <Scene/>
           </Canvas>
         </div>
 
