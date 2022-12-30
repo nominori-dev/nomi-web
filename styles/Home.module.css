@@ -40,14 +40,13 @@
 }
 
 .main_content .tile {
-    color: rgba(53, 253, 53, 0.747);
-    background-color: black;
-    border: 1px solid rgba(53, 253, 53, 0.747);
+    background: rgba(240, 240, 240, 0.39);
+    border-radius: 5px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.1px);
+    -webkit-backdrop-filter: blur(1.1px);
+    border: 1px solid rgba(155, 155, 155, 0.37);
     margin-bottom: 5%;
-}
-
-.main_content .tile:hover {
-    background-color: rgba(0, 0, 0, 0.849);
 }
 
 .tile {
@@ -95,7 +94,7 @@
 
 .scene {
     width: 100vw;
-    height: 30vh;
+    height: 50vh;
 }
 
 .canvas {

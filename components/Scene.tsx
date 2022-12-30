@@ -30,7 +30,7 @@ export function Scene(props: JSX.IntrinsicElements['group']) {
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, -5]} scale={0.55}>
-        <mesh castShadow receiveShadow  geometry={(nodes['12249_Bird_v1']as THREE.Mesh).geometry} material={materials['12249_Bird_v1']} scale={0.4} ref={sceneRef}/>
+        <mesh castShadow receiveShadow  geometry={(nodes['12249_Bird_v1'] as THREE.Mesh).geometry} material={materials['12249_Bird_v1']} scale={0.4} ref={sceneRef}/>
       </group>
     </group>
   )

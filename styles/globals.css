@@ -12,8 +12,23 @@ body {
 
 body {
     color: rgb(var(--foreground-rgb));
-    background-image: linear-gradient(to right, #F5F7FA , #b8c6db7a);
+    background-image: linear-gradient(to right, #F5F7FA , #0f38027a);
+    background-size: 400% 400%;
+    animation: gradient-bg 5s ease infinite;
 }
+
+@keyframes gradient-bg {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 
 a {
     color: inherit;
@@ -21,7 +36,8 @@ a {
 }
 
 .footer {
-    margin-top: 10%;
+    margin-top: 5%;
+    margin-bottom: 3%;
     display: flex;
     align-items: center;
     justify-content: center;
