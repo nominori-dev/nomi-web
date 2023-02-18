@@ -1,17 +1,18 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
+import { Roboto } from '@next/font/google'
 import styles from '../styles/Home.module.css'
-import Programmer from '../public/programmer.svg'
-import React, { Suspense } from 'react'
-import { Canvas, extend } from '@react-three/fiber'
-import Floor from '../components/Floor'
+import React, { FC, Suspense } from 'react'
+import { Canvas} from '@react-three/fiber'
 import { TypeAnimation } from 'react-type-animation';
 import { Model } from '../components/Lambo'
-import { Environment, Lightformer, ContactShadows, OrbitControls, Loader, useProgress, Html } from '@react-three/drei'
-import { Effects } from '../components/Effects'
+import { Environment, Lightformer, OrbitControls, useProgress, Html } from '@react-three/drei'
+import Layout from '../components/layout/Layout'
+import PageWithLayoutType from '../components/layout/PageWithLayoutType'
 
-const inter = Inter({ subsets: ['latin'] })
+const roboto = Roboto({
+  weight: '500',
+  subsets: ['latin'],
+})
 
 interface GithubStats {
   name?: string,
@@ -21,8 +22,7 @@ interface GithubStats {
   public_repos?: number
 }
 
-
-export default function Home({data} : {data:any}) {
+export const Home: FC = ({data}: any) => {
 
 
   function Loader() {
@@ -38,15 +38,7 @@ export default function Home({data} : {data:any}) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <div className={styles.navbar}>
-          <a href='#' className={styles.title}>nominori-dev</a>
-          <ul>
-            <li><a id='navbar_link' href='https://github.com/nominori-dev'>Github</a></li>
-            <li><a id='navbar_link' href='https://ink.bdv.pw/'>Blog</a></li>
-            <li><a id='navbar_link' href='https://www.bdv.pw/'>BDV</a></li>
-          </ul>
-        </div>
+      <main className={roboto.className}>
         <div className={styles.main_content}>
           <div className={styles.tile}>
             <h2>
@@ -69,18 +61,16 @@ export default function Home({data} : {data:any}) {
             
           <Environment resolution={512}>
             {/* Ceiling */}
-            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, -9]} scale={[10, 1, 1]} />
-            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, -6]} scale={[10, 1, 1]} />
-            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, -3]} scale={[10, 1, 1]} />
-            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, 0]} scale={[10, 1, 1]} />
-            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, 3]} scale={[10, 1, 1]} />
-            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, 6]} scale={[10, 1, 1]} />
-            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, 9]} scale={[10, 1, 1]} />
+            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, -9]} scale={[10, 1, 1]} getObjectsByProperty={undefined} getVertexPosition={undefined} />
+            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, -6]} scale={[10, 1, 1]} getObjectsByProperty={undefined} getVertexPosition={undefined} />
+            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, -3]} scale={[10, 1, 1]} getObjectsByProperty={undefined} getVertexPosition={undefined} />
+            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, 0]} scale={[10, 1, 1]} getObjectsByProperty={undefined} getVertexPosition={undefined} />
+            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, 3]} scale={[10, 1, 1]} getObjectsByProperty={undefined} getVertexPosition={undefined} />
+            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, 6]} scale={[10, 1, 1]} getObjectsByProperty={undefined} getVertexPosition={undefined} />
+            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, 9]} scale={[10, 1, 1]} getObjectsByProperty={undefined} getVertexPosition={undefined} />
             {/* Sides */}
-            <Lightformer intensity={2} rotation-y={Math.PI / 2} position={[-50, 2, 0]} scale={[100, 2, 1]} />
-            <Lightformer intensity={2} rotation-y={-Math.PI / 2} position={[50, 2, 0]} scale={[100, 2, 1]} />
-            {/* Key */}
-            <Lightformer form="ring" color="red" intensity={10} scale={2} position={[10, 5, 10]} onUpdate={(self) => self.lookAt(0, 0, 0)} />
+            <Lightformer intensity={2} rotation-y={Math.PI / 2} position={[-50, 2, 0]} scale={[100, 2, 1]} getObjectsByProperty={undefined} getVertexPosition={undefined} />
+            <Lightformer intensity={2} rotation-y={-Math.PI / 2} position={[50, 2, 0]} scale={[100, 2, 1]} getObjectsByProperty={undefined} getVertexPosition={undefined} />
           </Environment>
 
           <OrbitControls autoRotate={true} enablePan={false} enableZoom={false} minPolarAngle={Math.PI / 2.2} maxPolarAngle={Math.PI / 2.2} />
@@ -95,9 +85,9 @@ export default function Home({data} : {data:any}) {
           </div>
           <div className={styles.tile}>
             <h2>My skills</h2>
-              <p>Java 11+, Kotlin, Spring Framework</p>
+              <p>Java, Spring Framework (Core, Web, Data)</p>
               <p>Git, Github, JVM Build Tools (Maven / Gradle)</p>
-              <p>SQL, RDBMS (MySQL, PostgreSQL)</p>
+              <p>SQL RDBMS (MySQL, MariaDB, PostgreSQL)</p>
           </div>
           <div className={styles.tile}>
             <h2>Github stats</h2>
@@ -107,15 +97,13 @@ export default function Home({data} : {data:any}) {
             <p>Followers: <a>{data.followers}</a></p>
           </div>
         </div>
-        <div className='footer'>
-          <h3>Backed by <a href='bdv.pw'>bdv.pw</a></h3>
-          <small>Copyright @ 2022 Aleksei Shevtsov</small>
-        </div>
       </main>
     </>
   )
 }
 
+
+;(Home as PageWithLayoutType).layout = Layout;
 
 export async function getServerSideProps() {
   const res = await fetch(`https://api.github.com/users/nominori-dev`)
@@ -131,3 +119,5 @@ export async function getServerSideProps() {
 
   return { props: {data}}
 }
+
+export default Home;
