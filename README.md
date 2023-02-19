@@ -3,8 +3,6 @@
 
 [![Powered by bdv.pw](https://img.shields.io/badge/powered%20by-bdv.pw-blueviolet)](https://bdv.pw/)
 
-![version](https://img.shields.io/badge/version-0.2.0-success)
-
 This is my personal website to practice React.JS and Next.JS skills.
 
 
