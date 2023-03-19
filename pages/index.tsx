@@ -1,7 +1,6 @@
 // @ts-nocheck
 import Head from 'next/head'
 import { Roboto } from '@next/font/google'
-import styles from '../styles/Home.module.css'
 import React, { FC, Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { TypeAnimation } from 'react-type-animation';
@@ -39,30 +38,32 @@ export const Home: FC = ({ data }: any) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={roboto.className}>
-        <div className={styles.main_content}>
-          <div className={styles.tile}>
-            <h2>
-              <TypeAnimation
-                sequence={['Aleksei Shevtsov', 1000]}
-                speed={45}
-                wrapper="div"
-              />
-            </h2>
-            <p>Software developer and Co-Founder of BDV Foundation,
-              a company that provides Software as a Service and Outsourcing services.
-              I&apos;m working with Java-based applications.</p>
+      <main>
+        <div className="w-full flex justify-center items-center">
+          <div className="m-0 p-10 w-3/5">
+            <div className="tile p-4">
+              <h2 className='font-medium antialiased underline text-xl mb-3'>
+                <TypeAnimation
+                  sequence={['Aleksei Shevtsov', 1000]}
+                  speed={45}
+                  wrapper="div"
+                />
+              </h2>
+              <p>Software developer and Co-Founder of BDV Foundation,
+                a company that provides Software as a Service and Outsourcing services.
+                I&apos;m working with Java-based applications.</p>
+            </div>
           </div>
         </div>
-        <div className={styles.scene}>
-          <Canvas shadows={false} gl={{ logarithmicDepthBuffer: true, antialias: false, alpha: true }} dpr={[1, 1.5]} camera={{ position: [0, 0, 15], fov: 25 }} className={styles.canvas}>
+        <div className='w-full h-72'>
+          <Canvas shadows={true} gl={{ logarithmicDepthBuffer: true, antialias: false, alpha: true }} dpr={[1, 1.5]} camera={{ position: [0, 0, 15], fov: 25 }}>
             <Suspense fallback={<Loader />}>
               <Model rotation={[0, Math.PI / 0.55, 0]} scale={0.018} />
               <hemisphereLight intensity={1} />
 
               <Environment resolution={512}>
                 {/* Ceiling */}
-                <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, -9]} scale={[10, 1, 1]} /> 
+                <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, -9]} scale={[10, 1, 1]} />
                 <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, -6]} scale={[10, 1, 1]} />
                 <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, -3]} scale={[10, 1, 1]} />
                 <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, 0]} scale={[10, 1, 1]} />
@@ -78,24 +79,25 @@ export const Home: FC = ({ data }: any) => {
             </Suspense>
           </Canvas>
         </div>
-
-        <div className={styles.info}>
-          <div className={styles.tile}>
-            <h2>How to reach me?</h2>
-            <p>You can reach me by e-mail: <a>nominori@bdv.pw</a> <br></br></p>
-          </div>
-          <div className={styles.tile}>
-            <h2>My skills</h2>
-            <p>Java, Spring Framework (Core, Web, Data)</p>
-            <p>Git, Github, JVM Build Tools (Maven / Gradle)</p>
-            <p>SQL RDBMS (MySQL, MariaDB, PostgreSQL)</p>
-          </div>
-          <div className={styles.tile}>
-            <h2>Github stats</h2>
-            <p>Name: <a>{data.name}</a></p>
-            <p>Location: <a>{data.location}</a></p>
-            <p>Following: <a>{data.following}</a></p>
-            <p>Followers: <a>{data.followers}</a></p>
+        <div className='flex items-center'>
+          <div className="m-auto flex wrap justify-center gap-20">
+            <div className="info_tile">
+              <h2>How to reach me?</h2>
+              <p>You can reach me by e-mail: <a>nominori@bdv.pw</a> <br></br></p>
+            </div>
+            <div className="info_tile">
+              <h2>My skills</h2>
+              <p>Java, Spring Framework (Core, Web, Data)</p>
+              <p>Git, Github, JVM Build Tools (Maven / Gradle)</p>
+              <p>SQL RDBMS (MySQL, MariaDB, PostgreSQL)</p>
+            </div>
+            <div className="info_tile">
+              <h2>Github stats</h2>
+              <p>Name: <a>{data.name}</a></p>
+              <p>Location: <a>{data.location}</a></p>
+              <p>Following: <a>{data.following}</a></p>
+              <p>Followers: <a>{data.followers}</a></p>
+            </div>
           </div>
         </div>
       </main>
