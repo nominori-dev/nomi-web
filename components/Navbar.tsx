@@ -7,8 +7,8 @@ export default function Navbar() {
                 <div className="flex items-center justify-between h-16">
                     <span className="text-2xl text-gray-900 font-semibold">nominori-dev</span>
                     <div className="flex space-x-4 text-gray-900">
-                        <Link href='#'>main</Link>
-                        <Link href='https://github.com/nominori-dev}'>github</Link>
+                        <Link href='/'>main</Link>
+                        <Link href='https://github.com/nominori-dev'>github</Link>
                         <Link href='/projects'>projects</Link>
                     </div>
                 </div>
