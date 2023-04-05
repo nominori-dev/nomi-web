@@ -1,18 +1,12 @@
 // @ts-nocheck
 import Head from 'next/head'
-import { Roboto } from '@next/font/google'
 import React, { FC, Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { TypeAnimation } from 'react-type-animation';
 import { Model } from '../components/Lambo'
 import { Environment, Lightformer, OrbitControls, useProgress, Html } from '@react-three/drei'
 import Layout from '../components/layout/Layout'
 import PageWithLayoutType from '../components/layout/PageWithLayoutType'
-
-const roboto = Roboto({
-  weight: '500',
-  subsets: ['latin'],
-})
+import Link from 'next/link'
 
 interface GithubStats {
   name?: string,
@@ -41,16 +35,16 @@ export const Home: FC = ({ data }: any) => {
       <main>
         <div className="w-full flex justify-center items-center mt-6">
           <div class="max-w-md p-6 bg-white backdrop-filter backdrop-blur-lg bg-opacity-50 rounded-xl drop-shadow-2xl">
-            <a href="#">
+            <Link href="#">
               <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 hover:underline">Aleksei Shevtsov</h5>
-            </a>
+            </Link>
             <p class="mb-3 font-normal text-gray-600">Software developer and Co-Founder of BDV Foundation,
               a company that provides Software as a Service and Outsourcing services.
               I&apos;m working with Java-based applications.</p>
-            <a href="/projects" class="inline-flex items-center text-blue-600 hover:underline">
+            <Link href="/projects" class="inline-flex items-center text-blue-600 hover:underline">
               My projects
               <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path></svg>
-            </a>
+            </Link>
           </div>
         </div>
         <div className='w-full flex flex-col items-center font-mono h-72'>
@@ -76,7 +70,6 @@ export const Home: FC = ({ data }: any) => {
               <OrbitControls autoRotate={true} enablePan={false} enableZoom={false} minPolarAngle={Math.PI / 2.2} maxPolarAngle={Math.PI / 2.2} />
             </Suspense>
           </Canvas>
-          <small className="text-xs">* Lambo model by Steven Grey (<a href='https://sketchfab.com/Steven007'>https://sketchfab.com/Steven007</a>) *</small>
         </div>
         <div className='flex justify-center mt-5 mb-32'>
           <div className="flex m-auto flex-col sm:flex-row justify-center gap-20">
