@@ -22,6 +22,7 @@
         "eslint-config-next": "13.1.1",
         "flowbite": "^1.6.4",
         "flowbite-react": "^0.4.3",
+        "framer-motion": "^10.10.0",
         "leva": "^0.9.34",
         "next": "13.1.1",
         "react": "18.2.0",

@@ -1,9 +1,7 @@
 import '../styles/globals.css'
-import type { ReactElement, ReactNode } from 'react'
-import type { NextPage } from 'next'
-import type { AppProps } from 'next/app'
 import PageWithLayoutType from '../components/layout/PageWithLayoutType'
-
+import { AnimatePresence } from 'framer-motion'
+import { useRouter } from "next/router";
 
 type AppLayoutProps = {
   Component: PageWithLayoutType
@@ -11,11 +9,13 @@ type AppLayoutProps = {
 }
 
 export default function App({ Component, pageProps }: AppLayoutProps) {
-
-  const Layout = Component.layout || ((children) => <>{children}</>)
+  const router = useRouter();
+  const NavLayout = Component.layout || ((children) => <>{children}</>)
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <AnimatePresence mode='wait' initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
+      <NavLayout>
+        <Component {...pageProps} key={router.route} />
+      </NavLayout>
+    </AnimatePresence>
   )
 }
