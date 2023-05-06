@@ -11,9 +11,9 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps): JSX.Element {
     return (
-        <div className="font-inter bg-gradient-to-r from-slate-300 to-slate-500">
+        <div className="font-inter">
             <Navbar />
-            <main>{children}</main>
+            <main className="flex-grow">{children}</main>
             <Footer />
         </div>
     )
