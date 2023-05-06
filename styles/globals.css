@@ -15,7 +15,7 @@
 
     body {
         background-color: rgb(164, 171, 194);
-        background-image: linear-gradient(133deg, rgb(180, 194, 238) 0%, rgba(182, 186, 207, 1) 100%);
+        background-image: linear-gradient(133deg, rgb(238, 180, 207) 0%, rgb(130, 132, 219) 100%);
     }
 
     a {
