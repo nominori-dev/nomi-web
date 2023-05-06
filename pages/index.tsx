@@ -35,7 +35,7 @@ export const Home: FC = ({ data }: any) => {
             <div>
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">📚 <span className=' hover:underline'>Skills</span></h5>
               <div>
-                <p class="mb-3 font-normal text-gray-600">Java + Spring Framework (CRUD Applications, REST API's, MVC, Microservices).</p>
+                <p class="mb-3 font-normal text-gray-600">Java + Spring Framework (CRUD Applications, REST API&apos;s, MVC, Microservices).</p>
                 <p class="mb-3 font-normal text-gray-600">TypeScript & JavaScript (React, NextJS, NestJS, Vue).</p>
                 <p class="mb-3 font-normal text-gray-600">Git, Docker, WSL. Also experienced with Jenkins, Gitlab for CI/CD Pipelines.</p>
               </div>
