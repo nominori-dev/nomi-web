@@ -11,9 +11,9 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps): JSX.Element {
     return (
-        <div className="font-inter">
+        <div className="font-inter flex flex-col">
             <Navbar />
-            <main className="flex-grow">{children}</main>
+            <main>{children}</main>
             <Footer />
         </div>
     )
